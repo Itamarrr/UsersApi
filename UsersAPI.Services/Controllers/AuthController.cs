@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UsersAPI.Services.Controllers
@@ -29,6 +30,7 @@ namespace UsersAPI.Services.Controllers
         ///<summary>
         ///Alterar a senha de acesso do usaurio
         ///</summary>
+        [Authorize]// tudo que esta na politica de altorização no JwtBearerExtension vai valer aqui nesse metodo
         [Route("reset-password")]
         [HttpPost]
         public IActionResult ResetPassword()
