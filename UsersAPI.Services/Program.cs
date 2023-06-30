@@ -10,7 +10,7 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);//colocar a
 //builder.Services.AddSwaggerGen();RETIRADO POQUE EU CRIEI UMA CLASSE PARA ISSO
 builder.Services.AddSwaggerDoc();
 builder.Services.AddJwtBearer();//INCLUINDO A CONFIGURAÇÃO DO JWT
-builder.Services.AddCorsPolicy();//INCLUINDO A CONFIGURAÇÃO CorsExtension
+builder.Services.AddCorsPolicy();//INCLUINDO A CONFIGURAÇÃO CorsExtension 
 
 
 
