@@ -4,7 +4,7 @@
     {
         private static string _policyName = "DefaultPolicy";
 
-        public static IServiceCollection AddCors(this IServiceCollection services)
+        public static IServiceCollection AddCorsPolicy(this IServiceCollection services)
         {
             services.AddCors(s => s.AddPolicy(_policyName, builder =>
             {
@@ -19,7 +19,7 @@
             return services;
         }
 
-        public static IApplicationBuilder UseCors(this IApplicationBuilder app)
+        public static IApplicationBuilder UseCorsPolicy(this IApplicationBuilder app)
         {
             app.UseCors(_policyName);
             return app;

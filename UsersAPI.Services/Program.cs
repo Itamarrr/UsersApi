@@ -10,6 +10,7 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);//colocar a
 //builder.Services.AddSwaggerGen();RETIRADO POQUE EU CRIEI UMA CLASSE PARA ISSO
 builder.Services.AddSwaggerDoc();
 builder.Services.AddJwtBearer();//INCLUINDO A CONFIGURAÇÃO DO JWT
+builder.Services.AddCorsPolicy();//INCLUINDO A CONFIGURAÇÃO CorsExtension
 
 
 
@@ -23,6 +24,7 @@ var app = builder.Build();
 app.UseSwaggerDoc();// roda o Swagger tanto em produção quanto em dev
 
 app.UseAuthentication();// essa é a sequancia primeiro vem esse depois vem o UseAuthorization
+app.UseCorsPolicy();// CorsExtension para o UseCorsPolicy
 app.UseAuthorization();
 
 app.MapControllers();
