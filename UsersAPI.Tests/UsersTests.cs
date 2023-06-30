@@ -26,7 +26,7 @@ namespace UsersAPI.Tests
         {
             //TODO
         }
-
+         
         [Fact(Skip = "Não implementado.")]
         public void Users_Delete_Returns_Ok()
         {
