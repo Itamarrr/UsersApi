@@ -4,22 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UsersAPI.Domain.Interfaces.Repositories;
+using UsersAPI.Infra.Data.Contexts;
 
 namespace UsersAPI.Infra.Data.Repositories
 {
-    //UnitOfWork 
     public class UnitOfWork : IUnitOfWork
     {
-        public IUserRepository UserRepository => throw new NotImplementedException();
-        
+        private readonly DataContext? _dataContext;
+
+        public UnitOfWork(DataContext? dataContext)
+        {
+            _dataContext = dataContext;
+        }
+
+        public IUserRepository UserRepository => new UserRepository(_dataContext);
 
         public void SaveChanges()
         {
-            throw new NotImplementedException();
+            _dataContext?.SaveChanges();
         }
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _dataContext?.Dispose();
         }
     }
 }
+
+
+
